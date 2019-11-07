@@ -3,16 +3,17 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   height: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
   padding: 20px;
   cursor: pointer;
+  box-shadow: 0 2px 6px;
 }
 
 .spinner {
@@ -61,15 +62,15 @@
   color: rgb(161, 15, 15);
 }
 
-
 .search {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 10px;
+  width: 50%;
+  margin: auto;
+  margin-top: 2em;
 }
-
 
 input[type="submit"] {
   padding: 5px;
@@ -81,16 +82,19 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-
 input[type="submit"]:hover {
   background-color: #282c34;
   color: antiquewhite;
 }
 
-
-.search > input[type="text"]{
+.search > input[type="text"] {
   width: 40%;
   min-width: 170px;
+}
+
+.search > .input-group > .form-control:focus {
+  border-color: white;
+  box-shadow: 0 0 0 0.2rem rgba(116, 117, 117, 0.25);
 }
 
 @media screen and (min-width: 694px) and (max-width: 915px) {
@@ -104,7 +108,6 @@ input[type="submit"]:hover {
     max-width: 50%;
   }
 }
-
 
 @media screen and (max-width: 651px) {
   .movie {

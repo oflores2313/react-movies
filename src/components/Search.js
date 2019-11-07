@@ -1,33 +1,45 @@
 import React, { useState } from "react";
+import { Form, Button, InputGroup, FormControl, ControlLabel } from "react-bootstrap";
 
-
-const Search = (props) => {
+const Search = props => {
   const [searchValue, setSearchValue] = useState("");
-  
-  const handleSearchInputChanges = (e) => {
+
+  const handleSearchInputChanges = e => {
     setSearchValue(e.target.value);
-  }
+  };
 
   const resetInputField = () => {
-    setSearchValue("")
-  }
+    setSearchValue("");
+  };
 
-  const callSearchFunction = (e) => {
+  const callSearchFunction = e => {
     e.preventDefault();
     props.search(searchValue);
     resetInputField();
-  }
+  };
 
   return (
-      <form className="search">
-        <input
+    <form className="search">
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Search Movie"
+          aria-label="Search Movie"
+          aria-describedby="basic-addon2"
           value={searchValue}
           onChange={handleSearchInputChanges}
-          type="text"
         />
-        <input onClick={callSearchFunction} type="submit" value="SEARCH" />
-      </form>
-    );
-}
+        <InputGroup.Append>
+          <Button
+            variant="outline-secondary"
+            onClick={callSearchFunction}
+            type="submit"
+          >
+            Search
+          </Button>
+        </InputGroup.Append>
+      </InputGroup>
+    </form>
+  );
+};
 
 export default Search;
